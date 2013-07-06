@@ -1,0 +1,5 @@
+<?php foreach($this->arrModules as $module): ?>
+
+<?php echo $module['pre_code'] . $module['module'] . $module['after_code']; ?>
+
+<?php endforeach; ?>
