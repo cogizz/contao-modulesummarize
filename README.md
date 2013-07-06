@@ -1,6 +1,6 @@
 ModuleSummarize
 ===============
 
-Stell ein Contao Frontend-Modul zur Zusammenfassung von Frontend-Modulen zur Verfügung. Freigegeben für Contao >3.1
+Stell ein Contao Frontend-Modul zur Zusammenfassung von Frontend-Modulen zur Verfügung. Freigegeben für Contao 3.1.X
 
 *dependencies: multicolumnwizard
