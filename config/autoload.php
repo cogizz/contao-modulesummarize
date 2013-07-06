@@ -35,6 +35,6 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'mod_summarize_default' => 'system/modules/modulesummarize/templates',
-	'mod_summarize_plain'   => 'system/modules/modulesummarize/templates',
+	'mod_summarize_default' => 'system/modules/modulesummarize/templates/modules',
+	'mod_summarize_plain'   => 'system/modules/modulesummarize/templates/modules',
 ));
