@@ -31,7 +31,7 @@
 /**
  * Add palettes to tl_module
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['modulesummarize'] = '{title_legend},name,headline,type;{config_legend},module_summarize_modules,module_summarize_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['modulesummarize'] = '{title_legend},name,type;{config_legend},module_summarize_modules,module_summarize_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 /**
  * Add fields to tl_module
@@ -41,6 +41,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['module_summarize_modules'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['module_summarize_modules'],
 	'exclude'                 => true,
 	'inputType'               => 'multiColumnWizard',
+	'sql'											=> "module_summarize_modules blob NOT NULL",
 	'eval'                    => array(
 		'mandatory'=>true,
 		'tl_class' => 'long',
@@ -77,6 +78,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['module_summarize_template'] = array
 	'exclude'                 => true,
 	'inputType'               => 'select',
 	'options'                 => $this->getTemplateGroup('mod_summarize_'),
+	'sql'											=> "module_summarize_template varchar(64) NOT NULL default ''",
 	'eval'                    => array(
 		'tl_class'=>'m12 w50'
 	)
@@ -103,12 +105,12 @@ class tl_module_module_summarize extends Backend
 	{
 		$intPid = $dc->activeRecord->pid;
 
-		if ($this->Input->get('act') == 'overrideAll')
+		if (\Input::get('act') == 'overrideAll')
 		{
-			$intPid = $this->Input->get('id');
+			$intPid = \Input::get('id');
 		}
 
-		return $this->getTemplateGroup('mod_summarize_', $intPid);
+		return \Controller::getTemplateGroup('mod_summarize_', $intPid);
 	}
 
 	/**
@@ -116,9 +118,10 @@ class tl_module_module_summarize extends Backend
 	 * @return array
 	 */
 	public function loadModuleSummarizeOptions() {
-		$intPid = $this->Input->get('pid') ? $this->Input->get('pid') : $this->getPidIdFromModule($this->Input->get('id'));
+		$intPid =\Input::get('pid') ? \Input::get('pid') : tl_module_module_summarize::getPidIdFromModule($this->Input->get('id'));
 
-		$objModule = $this->Database->prepare("SELECT id, name FROM tl_module Where pid = ?")->execute($intPid);
+		$objDatabase = \Database::getInstance();
+		$objModule = $objDatabase->prepare("SELECT id, name FROM tl_module Where pid = ?")->execute($intPid);
 		$arrModule = array();
 
 		while($objModule->next())
@@ -133,7 +136,8 @@ class tl_module_module_summarize extends Backend
 	 * @return int
 	 */
 	public function getPidIdFromModule($intModule) {
-		return $this->Database->prepare("SELECT pid FROM tl_module Where id = ?")->execute($intModule)->pid;
+		$objDatabase = \Database::getInstance();
+		return $objDatabase->prepare("SELECT pid FROM tl_module Where id = ?")->execute($intModule)->pid;
 	}
 }
 
