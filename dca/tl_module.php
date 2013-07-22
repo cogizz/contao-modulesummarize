@@ -41,7 +41,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['module_summarize_modules'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['module_summarize_modules'],
 	'exclude'                 => true,
 	'inputType'               => 'multiColumnWizard',
-	'sql'											=> "module_summarize_modules blob NOT NULL",
+	'sql'											=> "blob NOT NULL",
 	'eval'                    => array(
 		'mandatory'=>true,
 		'tl_class' => 'long',
@@ -78,7 +78,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['module_summarize_template'] = array
 	'exclude'                 => true,
 	'inputType'               => 'select',
 	'options'                 => $this->getTemplateGroup('mod_summarize_'),
-	'sql'											=> "module_summarize_template varchar(64) NOT NULL default ''",
+	'sql'											=> "varchar(64) NOT NULL default ''",
 	'eval'                    => array(
 		'tl_class'=>'m12 w50'
 	)
