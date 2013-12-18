@@ -19,7 +19,7 @@
         "php":">=5.3",
         "contao/core":">=3.1,<4",
         "contao-community-alliance/composer-installer":"*",
-        "menatwork/MultiColumnWizard":"~3.1"
+        "menatwork/contao-multicolumnwizard": "3.1.*"
     },
     "extra":{
         "contao":{
