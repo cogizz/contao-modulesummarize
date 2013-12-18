@@ -1,0 +1,34 @@
+{
+    "name":"cogizz/modulesummarize",
+    "description":"A module summarize module for Contao CMS ",
+    "keywords":["modules","contao frontend","modulesummarize"],
+    "type":"contao-module",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"Christopher Bölter",
+            "homepage":"http://www.cogizz.de",
+            "role":"Developer"
+        }
+    ],
+    "support":{
+        "issues":"https://github.com/cogizz/contao-modulesummarize/issues",
+        "source":"https://github.com/cogizz/contao-modulesummarize"
+    },
+    "require":{
+        "php":">=5.3",
+        "contao/core":">=3.1,<4",
+        "contao-community-alliance/composer-installer":"*",
+        "menatwork/MultiColumnWizard":"~3.1"
+    },
+    "autoload":{
+        "classmap":[""]
+    },
+    "extra":{
+        "contao":{
+            "symlinks":{
+                "src/system/modules/modulesummarize":"system/modules/modulesummarize"
+            }
+        }
+    }
+}
