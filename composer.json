@@ -21,9 +21,6 @@
         "contao-community-alliance/composer-installer":"*",
         "menatwork/MultiColumnWizard":"~3.1"
     },
-    "autoload":{
-        "classmap":[""]
-    },
     "extra":{
         "contao":{
             "symlinks":{
