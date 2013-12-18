@@ -5,9 +5,10 @@
  *
  * Copyright (c) 2005-2013 Leo Feyer
  *
- * @package Modulesummarize
- * @link    https://contao.org
- * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+ * @package   ModuleSummarize
+ * @author    Christopher Bölter
+ * @license   LGPL
+ * @copyright cogizz - digital communications
  */
 
 
